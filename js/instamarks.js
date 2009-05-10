@@ -41,7 +41,8 @@ function loadScript(url, callback)
     head.appendChild(script);
 }
 
-var scriptUrls = ['http://www.fsavard.com/code/speedread/jquery.js','http://www.fsavard.com/code/uuid.js'];
+var scriptUrls = ['http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+                  '/js/uuid.js'];
 function loadScripts(lastCallback, nextId){
     if(!nextId) nextId = 0;
     if(nextId >= scriptUrls.length){
