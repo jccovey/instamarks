@@ -7,4 +7,4 @@ The project's concept is outlined at <http://clusterify.com/projects/list/fsavar
 
 * * *
 
-<javascript:(function%20bookmarklet(url){var%20s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('src',url);document.documentElement.appendChild(s);})('http://instamarks.appspot.com/js/bookmarklet.js');>
+`javascript:(function%20bookmarklet(url){var%20s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('src',url);document.documentElement.appendChild(s);})('http://instamarks.appspot.com/js/bookmarklet.js');`
