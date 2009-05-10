@@ -7,7 +7,4 @@ The project's concept is outlined at <http://clusterify.com/projects/list/fsavar
 
 * * *
 
-/* Bookmarklet code
-javascript:function%20loadScript(scriptURL)%20{%20var%20scriptElem%20=%20document.createElement('SCRIPT');%20scriptElem.setAttribute('language',%20'JavaScript');%20scriptElem.setAttribute('src',%20scriptURL);%20document.body.appendChild(scriptElem);}%20loadScript('http://fsavard.com/code/landmarks.js');
-*/
-
+[Bookmark this!](javascript:(function%20bookmarklet(url){var%20s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('src',url);document.documentElement.appendChild(s);})('http://instamarks.appspot.com/js/bookmarklet.js');)
