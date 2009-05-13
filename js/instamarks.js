@@ -2,7 +2,7 @@
 javascript:function%20loadScript(scriptURL)%20{%20var%20scriptElem%20=%20document.createElement('SCRIPT');%20scriptElem.setAttribute('language',%20'JavaScript');%20scriptElem.setAttribute('src',%20scriptURL);%20document.body.appendChild(scriptElem);}%20loadScript('http://fsavard.com/code/landmarks.js');
 */
 
-function loadCss(url){
+function loadCss(url) {
     var headID = document.getElementsByTagName("head")[0];
     var cssNode = document.createElement('link');
     cssNode.type = 'text/css';
@@ -41,11 +41,17 @@ function loadScript(url, callback)
     head.appendChild(script);
 }
 
-var scriptUrls = ['http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
-                  '/js/uuid.js'];
+var scriptUrls = [
+	'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+ 	'http://jqueryui.com/latest/ui/ui.core.js',
+	'http://jqueryui.com/latest/ui/ui.draggable.js',
+	'/js/uuid.js'
+];
+
 function loadScripts(lastCallback, nextId){
     if(!nextId) nextId = 0;
     if(nextId >= scriptUrls.length){
+		loadCss('/css/instamarks.css');
         lastCallback(); return;
     }
     loadScript(scriptUrls[nextId], function(){
@@ -116,8 +122,8 @@ function newLandmark(){
         alert("You first need to select some text to serve as landmark.");
         return;
     }
-    if(title.length > 20){
-        title = title.substr(0,20) + '...';
+    if(title.length > 50){
+        title = title.substr(0,50) + '...';
     }
 
     var uuid = UUID.generate('v4');
@@ -125,31 +131,31 @@ function newLandmark(){
     insertNodeAtRangeStart(landmark.get(0), range);
 
     var listitem = jQuery('<li/>');
-    jQuery('#landmarks_list').append(listitem);
+    jQuery('div#instamarks ul').append(listitem);
     var anchorlink = jQuery('<a href="#'+uuid+'">'+title+'</a>');
     listitem.append(anchorlink);
 }
 
-function proceed(){
-    var htmlToAdd =
-    '<div id="landmarks_controls"><input type="button" onclick="newLandmark();" value="New landmark from selection"/></div>'+
-    '<ul id="landmarks_list">'+
-    '</ul>';
+function proceed() {
+	var container = jQuery('<div />');
+	var list = jQuery('<ul />')
+		
+	container.attr('id', 'instamarks');
+	container.html('<div id="handle">Instamarks!</div> <button id="new">Add</button>');
+	container.append(list);
 
-    ob = jQuery('<div/>')
-    .html(htmlToAdd)
-    .attr('id','landmarks_container')
-    .css({
-        'position':'fixed',
-        'right':'5px',
-        'top':'5px',
-        'width':'330px',
-        'background-color':'#ddd',
-        'padding':'5px',
-        'border':'1px solid black'
-    });
-
-    jQuery('body').append(ob);
+	jQuery('body').append(container);
+	
+	jQuery('div#instamarks').hover(function() {
+		jQuery('div#instamarks ul').css('height', 'inherit');
+	}, function() {
+		jQuery('div#instamarks ul').css('height', '0');
+	});
+	
+	jQuery('div#instamarks button').click(function() {
+		newLandmark();
+	});
+	
 }
 
 loadScripts(proceed, 0);

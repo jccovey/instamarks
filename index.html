@@ -1,11 +1,27 @@
-<html>
-    <body>
-
-        <h1>Instamarks</h1>
-        Drag this link to your bookmark bar <br/>
-        <a href="javascript:function%20loadScript(scriptURL)%20{%20var%20scriptElem%20=%20document.createElement('SCRIPT');%20scriptElem.setAttribute('language',%20'JavaScript');%20scriptElem.setAttribute('src',%20scriptURL);%20document.body.appendChild(scriptElem);}%20loadScript('http://{{host}}/js/instamarks.js');">Instamark</a>
-        <br/><br/>
-        <a href='http://www.clusterify.com/projects/list/fsavard/7/'>A clusterify project</a>
-
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/standard.css" />
+		<title>Instamarks - Add Bookmarks Anywhere on Any Page</title>
+	</head>
+	<body>
+		<div id="wrap">
+			<h1>Instamarks</h1>
+			<p>
+				Ever read a source code listing or lengthy comment thread and wished for a quick means of 
+				bookmarking a particular function or comment to refer to later? 
+			</p>
+			<p>	
+				Instamarks is a bookmarklet giving you that ability. Add the link below to your browser's bookmarks
+				and click it any time you need to bookmark a paragraph, line source code, or blog comment. 
+			</p>
+			<p>
+				<a id="bookmarklet" href="javascript:(function%20bookmarklet(url){var%20s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('src',url);document.documentElement.appendChild(s);})('http://instamarks.appspot.com/js/instamarks.js');">Instamarks!</a>
+			</p>
+			<p id="footer">
+				&copy; 2009 Instamarks. A <a href="http://clusterify.com/projects/list/fsavard/7/">Clusterify Project</a>.
+			</p>
+		</div>
+	</body>
 </html>
